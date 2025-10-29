@@ -1,14 +1,11 @@
 class Controlador:
-    def __init__(self, obj_vista , obj_modelo):
-        #composicion en el constructor
+    def __init__(self, obj_vista, obj_modelo):
+        # composición
         self.obj_vista = obj_vista
         self.obj_modelo = obj_modelo
 
-
-    def hacer_pregunta(self):
-        self.obj_formulario.hacer_campo()
-        self.obj_numero.validar_par()
-        dato_mensaje = self.obj_numero.validar_par()
-        
-        self.obj_formulario.imprimir_resultado(aux_mensaje)
-        
+    def ejecutar_programa(self):
+        dato_numero = self.obj_vista.hacer_campo()
+        self.obj_modelo.set_numero(dato_numero)
+        dato_mensaje = self.obj_modelo.validar_numero()
+        self.obj_vista.imprimir_resultado(dato_mensaje)
