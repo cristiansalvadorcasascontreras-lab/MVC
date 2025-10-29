@@ -15,17 +15,32 @@
 #composicion de clases --> llamar objeto en el constructor 
 #agregacion clases --> llamar objeto desde el metodo 
 #""
-class numero:
+class Numero:
     def __init__(self):
-        self.numero = " "
+        self.dato_numero = 0  # atributo principal
+
     def get_numero(self):
-        return self.numero
+        return self.dato_numero
+
     def set_numero(self, nuevo_numero):
-        self.numero = nuevo_numero
+        self.dato_numero = nuevo_numero
 
     def validar_par(self):
-        if self.numero % 2 == 0:
-            mensaje = "El numero es par"
+        if self.dato_numero % 2 == 0:
+            return "El número es par"
         else:
-            mensaje = "El numero es impar"
-        return mensaje
+            return "El número es impar"
+
+    def validar_signo(self):
+        if self.dato_numero > 0:
+            return "El número es positivo"
+        elif self.dato_numero < 0:
+            return "El número es negativo"
+        else:
+            return "El número es neutro"
+
+    def validar_numero(self):
+        # Combina ambas validaciones
+        mensaje_par = self.validar_par()
+        mensaje_signo = self.validar_signo()
+        return f"{mensaje_par} y {mensaje_signo}"
